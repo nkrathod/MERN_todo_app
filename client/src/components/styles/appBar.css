@@ -1,0 +1,66 @@
+.app-bar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 60px;
+  background-color: #3f51b5;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  bottom: rgba(0, 30, 43, 0.1) 0px 4px 4px 0px;
+  z-index: 10;
+}
+.app-name {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.app-name i {
+  margin-right: 7px;
+  color: white;
+}
+.app-bar-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.button {
+  background-color: #1aa559; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.username {
+  font-size: 16px;
+  color: white;
+  margin-right: 10px;
+}
+@media (max-width: 900px) {
+  .app-bar {
+    padding: 0 10px;
+  }
+  .app-bar h1 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 500px) {
+  .app-bar {
+    padding: 0 10px;
+  }
+  .app-name {
+    font-size: 18px;
+  }
+  .app-bar h1 {
+    font-size: 17px;
+  }
+}

@@ -1,0 +1,92 @@
+.todo-item {
+  max-width: 400px;
+  min-width: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 16px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.09);
+  margin-bottom: 25px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.header-todo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+  position: relative;
+  gap: 10px;
+  min-height: 40px;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.2;
+  height: 100%;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  margin-right: 0;
+  font-size: 1.3em;
+  height: 100%;
+}
+
+.delete-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #ff4d4d;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-size: 1.2em;
+  padding: 8px;
+}
+
+.delete-icon:hover {
+  color: #d32f2f;
+}
+
+.fa-circle-check {
+  color: #1aa559;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.fa-tasks {
+  color: #1a73e8;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.description {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 12px;
+  margin-top: 4px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;
+  display: -webkit-box;
+  /* -webkit-line-clamp: 4; */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 4.8em;
+  align-self: flex-start;
+  text-align: left;
+}
