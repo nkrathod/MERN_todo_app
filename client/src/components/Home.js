@@ -125,10 +125,8 @@ const Home = () => {
       fetchTodos().then((data) => {
         if (!data) return;
         let filteredTodos = data;
-        if (filter === "completed") {
-          filteredTodos = data.filter((todo) => todo.completed);
-        } else if (filter === "pending") {
-          filteredTodos = data.filter((todo) => !todo.completed);
+        if (filter !== "all") {
+          filteredTodos = data.filter((todo) => todo.completed === filter);
         }
         setTodos(filteredTodos);
       });
@@ -167,6 +165,8 @@ const Home = () => {
                 <option value="all">All</option>
                 <option value="completed">Completed</option>
                 <option value="pending">Pending</option>
+                <option value="ready">Ready</option>
+                <option value="inprogress">In-progress</option>
               </select>
             </div>
             <button className="add-todo-button" onClick={() => openModal()}>
