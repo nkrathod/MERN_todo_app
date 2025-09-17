@@ -2,7 +2,7 @@ const Todo = require("../Models/TodoModel");
 
 module.exports.CreateTodo = async (req, res, next) => {
     try {
-        const { title, description, createdBy, completed } = req.body;
+        const { title, description, createdBy, completed, priority } = req.body;
         if (!title || !description || !createdBy) {
             return res.status(400).json({ message: "Title, description, and user ID are required" });
         }
@@ -10,6 +10,7 @@ module.exports.CreateTodo = async (req, res, next) => {
             title,
             description,
             createdBy,
+            priority: priority || "low",
             completed: completed || false // Default to false if not provided
         });
         res.status(201).json({ message: "Todo created successfully", todo });
@@ -34,14 +35,14 @@ module.exports.GetTodos = async (req, res, next) => {
 module.exports.UpdateTodo = async (req, res, next) => {
     try {
         const todoId = req.query.todoId;
-        const {title, description, completed, userId } = req.body;
+        const {title, description, completed, userId, priority } = req.body;
         console.log(`User ${userId} updating todo with ID: ${todoId}`);
         if (!todoId || !title || !description) {
             return res.status(400).json({ message: "Todo ID, title, and description are required" });
         }
         const updatedTodo = await Todo.findByIdAndUpdate(
             todoId,
-            { title, description, completed },
+            { title, description, completed, priority },
             { new: true }
         );
         if (!updatedTodo) {

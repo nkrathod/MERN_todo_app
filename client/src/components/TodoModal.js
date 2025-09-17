@@ -16,16 +16,22 @@ const TodoModalComponent = ({
   const [status, setStatus] = React.useState(
     todoData?.completed ? "completed" : "pending"
   );
+  const [priority, setPriority] = React.useState(todoData?.priority || "low");
 
   useEffect(() => {
     setTitle(todoData?.title || "");
     setDescription(todoData?.description || "");
-    setStatus(todoData?.completed ? "completed" : "pending");
+    setStatus(todoData?.completed || "pending");
+    setPriority(todoData?.priority || "low");
     setError && setError("");
   }, [todoData, setError]);
 
   const handleStatusChange = (e) => {
     setStatus(e.target.value);
+  };
+
+  const handlePriority = (e) => {
+    setPriority(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,13 +42,16 @@ const TodoModalComponent = ({
     const todo = {
       title,
       description,
-      completed: status === "completed" ? true : false,
+      // completed: status === "completed" ? true : false,
+      completed: status,
+      priority,
     };
 
     console.log("Submitting todo:", todo);
     setError("");
     setTitle("");
     setDescription("");
+    setPriority("");
     setStatus("pending");
     onSubmit(todo);
   };
@@ -72,6 +81,18 @@ const TodoModalComponent = ({
             className="textarea-field"
           />
           <label className="label">
+            Priority <span style={{ color: "red" }}>*</span>
+          </label>
+          <select
+            value={priority}
+            onChange={(e) => handlePriority(e)}
+            className="status-field"
+          >
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+          <label className="label">
             Status <span style={{ color: "red" }}>*</span>
           </label>
           <select
@@ -79,6 +100,8 @@ const TodoModalComponent = ({
             onChange={(e) => handleStatusChange(e)}
             className="status-field"
           >
+            <option value="ready">Ready</option>
+            <option value="inprogress">In-progress</option>
             <option value="pending">Pending</option>
             <option value="completed">Completed</option>
           </select>

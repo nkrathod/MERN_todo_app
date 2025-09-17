@@ -39,6 +39,7 @@ const Home = () => {
           title: data.title,
           description: data.description,
           completed: data.completed,
+          priority: data.priority,
         })
         .then((response) => {
           setError("");
@@ -58,8 +59,9 @@ const Home = () => {
         .put(`/todo/update?todoId=${todoData._id}`, {
           title: data.title,
           description: data.description,
-          completed: data.completed,
+          completed: data.completed ? data.completed : "pending",
           userId: userDetails.username,
+          priority: data.priority ? data.priority : "low",
         })
         .then((response) => {
           setError("");

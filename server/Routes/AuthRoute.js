@@ -1,6 +1,5 @@
 const { Signup, Login } = require("../Controllers/AuthController");
 const { userVerification } = require("../Middlewares/AuthMiddleware");
-const { CreateTodo} = require("../Controllers/TodoController");
 const router = require("express").Router();
 const test = async (req, res, next) => {
     try {

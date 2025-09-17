@@ -9,9 +9,13 @@ const todoSchema = new mongoose.Schema({
         type: String,
         required: [true, "Description is required"],
     },
+    priority: {
+        type: String,
+        default: "low"
+    },
     completed: {
-        type: Boolean,
-        default: false,
+        type: String,
+        default: "pending",
     },
     createdBy: {
         type: String,

@@ -29,20 +29,6 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
 
-  // axiosInstance
-  //     .get(`/todo/get?userId=${userDetails.username}`)
-  //     .then((response) => {
-  //       if (response.data && response.data.todos) {
-  //         // setTodos(response.data.todos);
-  //         data = response.data.todos;
-  //       } else {
-  //         console.error("No todos found in the response");
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching todos:", error);
-  //     });
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     const userData = localStorage.getItem("user");
@@ -71,18 +57,5 @@ function App() {
     </div>
   );
 }
-
-// const App = () => {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-//         <Route path="/login" element={<Login />} />
-//         {/* <Route path="/create-todo" element={<CreateTodo />} /> */}
-//         <Route path="*" element={<NotFound />} />
-//       </Routes>
-//     </Router>
-//   );
-// }
 
 export default App;
